@@ -4,3 +4,5 @@
 /models
 # Ignore any data directory
 /data
+# Ignore environment variable file
+/.env
