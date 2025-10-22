@@ -24,6 +24,4 @@ stages:
     deps:
       - tune.py
       - data/test.csv
-    outs:
-      - results/accuracy.json
-      - results/confusion_matrix.png
+    outs: []
