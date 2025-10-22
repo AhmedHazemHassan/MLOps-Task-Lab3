@@ -1,0 +1,6 @@
+# Ignore MLflow tracking data
+/mlruns
+# Ignore the saved model file from train.py
+/models
+# Ignore any data directory
+/data
