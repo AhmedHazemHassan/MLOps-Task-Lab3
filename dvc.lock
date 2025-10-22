@@ -1,0 +1,64 @@
+schema: '2.0'
+stages:
+  preprocess:
+    cmd: python preprocess.py
+    deps:
+    - path: data/salaries.csv
+      hash: md5
+      md5: 3b294a7e53d8199ad8c4410752f8991d
+      size: 4054216
+    - path: preprocess.py
+      hash: md5
+      md5: 38c4ffd749f47e5bb15ac67a0fd608a8
+      size: 1487
+    outs:
+    - path: data/test.csv
+      hash: md5
+      md5: 7a414ff9b048824230a3524dc2f1b8b3
+      size: 1811793
+    - path: data/train.csv
+      hash: md5
+      md5: d3c07a7903432dc8685d4a6c3cbd4b99
+      size: 4227544
+  train:
+    cmd: python train.py
+    deps:
+    - path: data/train.csv
+      hash: md5
+      md5: d3c07a7903432dc8685d4a6c3cbd4b99
+      size: 4227544
+    - path: train.py
+      hash: md5
+      md5: cd16a787ea9315c968edb679be47e6d6
+      size: 725
+    outs:
+    - path: models/model.pkl
+      hash: md5
+      md5: d928116188ea70695f86842a5b32b581
+      size: 1823
+  check_data:
+    cmd: python check_data.py
+    deps:
+    - path: check_data.py
+      hash: md5
+      md5: 12220aede2b7d8adb9bdda183510981e
+      size: 311
+    - path: data/salaries.csv
+      hash: md5
+      md5: 3b294a7e53d8199ad8c4410752f8991d
+      size: 4054216
+  tune:
+    cmd: python tune.py
+    deps:
+    - path: data/test.csv
+      hash: md5
+      md5: 7a414ff9b048824230a3524dc2f1b8b3
+      size: 1811793
+    - path: data/train.csv
+      hash: md5
+      md5: d3c07a7903432dc8685d4a6c3cbd4b99
+      size: 4227544
+    - path: tune.py
+      hash: md5
+      md5: a9fad833d20dc76e85b8f47abd666735
+      size: 1675
