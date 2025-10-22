@@ -23,5 +23,5 @@ stages:
     cmd: python tune.py
     deps:
       - tune.py
+      - data/train.csv
       - data/test.csv
-    outs: []
